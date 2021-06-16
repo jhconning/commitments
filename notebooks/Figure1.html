@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Replicate Figure 1 &#8212; Commitments with Renegotiation Concerns</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model Sketch" href="ModelSketch.html" />
+    <link rel="prev" title="Note on Python Code" href="python_code.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      <h1 class="site-logo" id="site-title">Commitments with Renegotiation Concerns</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Commitments
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="python_code.html">
+   Note on Python Code
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Replicate Figure 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ModelSketch.html">
+   Model Sketch
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/notebooks/Figure1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jhconning/commitments"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/jhconning/commitments/main?urlpath=tree/notebooks/Figure1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/jhconning/commitments/blob/main/notebooks/Figure1.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="replicate-figure-1">
+<h1>Replicate Figure 1<a class="headerlink" href="#replicate-figure-1" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span><span class="n">fixed</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Contract</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Figure1</span><span class="p">(</span><span class="n">cC</span><span class="p">,</span> <span class="n">idl</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    <span class="n">cCF</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">fcommit</span><span class="p">()</span>
+    <span class="n">cCRP</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">reneg</span><span class="p">(</span><span class="n">cCF</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">y</span>
+    
+    <span class="n">c1min</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">c1max</span> <span class="o">=</span> <span class="mi">160</span>
+    <span class="n">c1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">c1max</span><span class="p">,</span> <span class="n">c1max</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">c1_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="n">c1max</span><span class="o">-</span><span class="mi">40</span><span class="p">,</span> <span class="n">c1max</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span>   <span class="c1"># to clip indifference curves</span>
+    <span class="n">ubar0</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">PVU</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">idc0</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">indif</span><span class="p">(</span><span class="n">ubar0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">ubar1</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">PVU</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span><span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">idc1</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">indif</span><span class="p">(</span><span class="n">ubar1</span><span class="p">,</span><span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">ubar0RP</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">PVU</span><span class="p">(</span><span class="n">cCRP</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">idc0RP</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">indif</span><span class="p">(</span><span class="n">ubar0RP</span><span class="p">,</span><span class="mf">1.0</span><span class="p">)</span>
+    <span class="n">ubar1RP</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">PVU</span><span class="p">(</span><span class="n">cCRP</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">idc1RP</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">indif</span><span class="p">(</span><span class="n">ubar1RP</span><span class="p">,</span><span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="p">)</span>
+
+    <span class="n">btr</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">cC</span><span class="o">.</span><span class="n">rho</span><span class="p">)</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">btr</span><span class="p">)</span>
+    <span class="n">q2</span> <span class="o">=</span> <span class="n">btr</span><span class="o">*</span><span class="n">q1</span>
+    
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+    <span class="c1"># indifference curves</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1_</span><span class="p">,</span><span class="n">idc0</span><span class="p">(</span><span class="n">c1_</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>  <span class="c1"># --Zeros&#39;s indif through F        </span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1_</span><span class="p">,</span><span class="n">idc1</span><span class="p">(</span><span class="n">c1_</span><span class="p">),</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>   <span class="c1"># --One&#39;s indif through F</span>
+    
+    <span class="c1"># rays</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">cC</span><span class="o">.</span><span class="n">beta</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">cC</span><span class="o">.</span><span class="n">rho</span><span class="p">)</span><span class="o">*</span><span class="n">c1</span><span class="p">,</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="c1"># isoprofit line(s)</span>
+    <span class="n">isoprofline</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">isoprofit</span><span class="p">(</span><span class="n">cC</span><span class="o">.</span><span class="n">profit</span><span class="p">(</span><span class="n">cCF</span><span class="p">,</span><span class="n">cC</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">cCF</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span>  <span class="n">isoprofline</span><span class="p">(</span><span class="n">c1</span><span class="p">),</span><span class="s1">&#39;:&#39;</span> <span class="p">)</span>
+
+    <span class="n">isoproflineK</span> <span class="o">=</span> <span class="n">cC</span><span class="o">.</span><span class="n">isoprofit</span><span class="p">(</span><span class="n">cC</span><span class="o">.</span><span class="n">profit</span><span class="p">(</span><span class="n">cCF</span><span class="p">,</span><span class="n">cC</span><span class="o">.</span><span class="n">y</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">cCF</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="n">cC</span><span class="o">.</span><span class="n">kbar</span><span class="p">(),</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span>  <span class="n">isoproflineK</span><span class="p">(</span><span class="n">c1</span><span class="p">),</span><span class="s1">&#39;:&#39;</span> <span class="p">)</span>
+
+    <span class="c1"># Axes</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">),</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="n">c1min</span><span class="p">,</span> <span class="n">c1max</span><span class="o">*</span><span class="mf">0.9</span><span class="p">)),</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">c1min</span><span class="p">,</span> <span class="n">c1max</span><span class="o">*</span><span class="mf">0.9</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">tick_bottom</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">tick_left</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$c_</span><span class="si">{1}</span><span class="s1">$&#39;</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$c_</span><span class="si">{2}</span><span class="s1">$&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1">#-- Intercept points on y axis</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span> <span class="n">cC</span><span class="o">.</span><span class="n">kbar</span><span class="p">(),</span><span class="mi">0</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$c_1^F+c_2^F$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cCRP</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cCRP</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">cC</span><span class="o">.</span><span class="n">kbar</span><span class="p">()</span> <span class="o">-</span> <span class="mi">6</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$c_1^F+c_2^F -\bar \kappa$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">c1max</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="n">c1max</span><span class="o">-</span><span class="mi">55</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$c_2=c_1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">c1max</span><span class="o">-</span><span class="mi">35</span><span class="p">,</span> <span class="n">btr</span><span class="o">*</span><span class="p">(</span><span class="n">c1max</span><span class="o">-</span><span class="mi">40</span><span class="p">),</span> <span class="sa">r</span><span class="s1">&#39;$c_2=\beta^\frac</span><span class="si">{1}</span><span class="s1">{\rho} \cdot c1$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    
+    <span class="c1"># label the points</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="mi">3</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$F$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cCRP</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="n">cCRP</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$R$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>   <span class="c1">#-- temporarily R, usually P.</span>
+    <span class="c1">#ax.text(cCRP[1], -6, r&#39;$c^{R}_{1}$&#39;, fontsize=15)</span>
+    <span class="c1">#ax.text(-8, cCRP[2], r&#39;$c^{R}_{2}$&#39;, fontsize=15)</span>
+    <span class="c1">#ax.text(cCF[1], -6, r&#39;$c^{*}_{1}$&#39;, fontsize=15)</span>
+    <span class="c1">#ax.text(-8, cCF[2], r&#39;$c^{*}_{2}$&#39;, fontsize=15)</span>
+    
+
+    <span class="c1"># trick to display contract points and coordinate lines http://bit.ly/1CaTMDX</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="p">[</span><span class="n">cCF</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cCRP</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">yy</span> <span class="o">=</span> <span class="p">[</span><span class="n">cCF</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">cCRP</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">idl</span><span class="p">:</span>  <span class="c1">#indicator lines</span>
+        <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">dot_x</span><span class="p">,</span> <span class="n">dot_x</span><span class="p">]</span> <span class="p">,[</span><span class="mi">0</span><span class="p">,</span> <span class="n">dot_y</span><span class="p">],</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span> <span class="p">)</span> 
+         <span class="k">for</span> <span class="n">dot_x</span><span class="p">,</span> <span class="n">dot_y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span> <span class="p">]</span> 
+        <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">dot_x</span><span class="p">]</span> <span class="p">,[</span><span class="n">dot_y</span><span class="p">,</span> <span class="n">dot_y</span><span class="p">],</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span> <span class="p">)</span> 
+         <span class="k">for</span> <span class="n">dot_x</span><span class="p">,</span> <span class="n">dot_y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">)</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Fig1</span><span class="p">(</span><span class="n">beta</span> <span class="o">=</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">rho</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">):</span>
+    <span class="n">cC</span> <span class="o">=</span> <span class="n">Contract</span><span class="o">.</span><span class="n">Competitive</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">cC</span><span class="o">.</span><span class="n">rho</span> <span class="o">=</span> <span class="n">rho</span>
+    <span class="n">Figure1</span><span class="p">(</span><span class="n">cC</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To see things more clearly, without having to zoom in, we’ll use slightly unusual parameters, but the essential relationships hold for more reasonable assumptions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Fig1</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Figure1_6_0.png" src="../_images/Figure1_6_0.png" />
+</div>
+</div>
+<p>To use the widget sliders you must run this on a jupyter notebooks server.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interact</span><span class="p">(</span><span class="n">Fig1</span><span class="p">,</span> <span class="n">beta</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">rho</span><span class="o">=</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">1.2</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span> <span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "4b80d6dd05a8414bb6bc150512de12d2"}
+</script><img alt="../_images/Figure1_8_1.png" src="../_images/Figure1_8_1.png" />
+</div>
+</div>
+</div>
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"19a3e5db1e41407889b576cd5b05bf5a": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "4b80d6dd05a8414bb6bc150512de12d2": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_189fefffd42f4584a50825bce1c97bf9", "IPY_MODEL_3fec8f47c5874d51a0fe705b72d3ce23", "IPY_MODEL_a9692dcc4365436f92710cbe424b023a"], "layout": "IPY_MODEL_19a3e5db1e41407889b576cd5b05bf5a"}}, "7a6552c973094028887bbebc1ff13561": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "668f5789a01247269c41338304ad0d6b": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "189fefffd42f4584a50825bce1c97bf9": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "beta", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_7a6552c973094028887bbebc1ff13561", "max": 0.95, "min": 0.3, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.05, "style": "IPY_MODEL_668f5789a01247269c41338304ad0d6b", "value": 0.4}}, "75a7ab97365340b9b8afb035f2c8eaae": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "bc7f862b117a4be8b30f33764b44f2c8": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "3fec8f47c5874d51a0fe705b72d3ce23": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "rho", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_75a7ab97365340b9b8afb035f2c8eaae", "max": 1.2, "min": 0.3, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.1, "style": "IPY_MODEL_bc7f862b117a4be8b30f33764b44f2c8", "value": 0.8}}, "4253dfafb55b4f45bb048022d48e05c9": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "a9692dcc4365436f92710cbe424b023a": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_4253dfafb55b4f45bb048022d48e05c9", "msg_id": "", "outputs": []}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="python_code.html" title="previous page">Note on Python Code</a>
+    <a class='right-next' id="next-link" href="ModelSketch.html" title="next page">Model Sketch</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Karna Basu and Jonathan Conning<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
