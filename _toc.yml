@@ -4,10 +4,11 @@ root: intro
 parts:
 - caption: Code and Figures
   chapters:
-  - file: notebooks/python_code
   - file: notebooks/Figure1
-- caption: Part 2
+  - file: notebooks/Figure3
+- caption: Notes and Extensions
   chapters:
   - file: notebooks/ModelSketch
+  - file: notebooks/python_code
   - file: notebooks/jbtest
   #- file: commitments
