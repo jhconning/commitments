@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model Sketch &#8212; Commitments with Renegotiation Concerns</title>
+    <title>Model Sketch &#8212; Commitments under Threat Project</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -75,7 +75,7 @@
     <a class="navbar-brand text-wrap" href="../index.html">
       
       
-      <h1 class="site-logo" id="site-title">Commitments with Renegotiation Concerns</h1>
+      <h1 class="site-logo" id="site-title">Commitments under Threat Project</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -86,11 +86,16 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
-   Commitments
+   Commitments under Threat
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
+<p class="caption">
+ <span class="caption-text">
+  Code and Figures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="python_code.html">
    Note on Python Code
@@ -101,6 +106,13 @@
    Replicate Figure 1
   </a>
  </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Part 2
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Model Sketch
@@ -248,7 +260,10 @@ u'(c_1) = \delta (1+r) u'(c_2)
 \[
 c_1 = c_2 = c_0 [ \beta \delta (1+r) ]^\frac{1}{\rho}
 \]</div>
-<p>WLOG assume that <span class="math notranslate nohighlight">\(\delta = \frac{1}{1+r}\)</span> and <span class="math notranslate nohighlight">\(r=0\)</span> and hence <span class="math notranslate nohighlight">\(\delta = 1\)</span>. This simplifies the expressions without changing the essential tradeoffs.</p>
+<p>WLOG assume that <span class="math notranslate nohighlight">\(\delta = \frac{1}{1+r}\)</span> and <span class="math notranslate nohighlight">\(r=0\)</span> and hence <span class="math notranslate nohighlight">\(\delta = 1\)</span>. This simplifies the expressions without changing the essential tradeoffs.
+$<span class="math notranslate nohighlight">\(
+c_1 = c_2 = c_0  \beta ^\frac{1}{\rho}
+\)</span>$</p>
 <p>If we substitute the FOC <span class="math notranslate nohighlight">\(c_1=c_2\)</span> into the consumer’s binding budget constraint (the bank’s zero profit condition) the problem can be reduced from three equation (two FOC and the zero profit condition) to two:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -260,7 +275,10 @@ c_1 = \frac{\sum y - c_0}{2}
 \]</div>
 <p>The first equation highlight’s the period-zero self’s present bias –they want to consume more in period zer than in period one–  while the second summarizes that hey want to smooth whatever resources are left to future consumption equally between periods 1 and 2.</p>
 <p>Figure 1 below illustrates how the equilibrium contract is determined, drawn for the CRRA case where <span class="math notranslate nohighlight">\(\beta=0.5\)</span> and <span class="math notranslate nohighlight">\(\rho = 1\)</span> and <span class="math notranslate nohighlight">\(\sum y =300\)</span>.  The first of these two lines can be seen as the upward sloping income-expansion income-expansion line in the rightmost quadrant diagram in <span class="math notranslate nohighlight">\(c_0\)</span> and <span class="math notranslate nohighlight">\(c_1\)</span> space.   The second line is seen as the downward sloping dashed line.</p>
-<p>TO BE CONTINUED</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be continued</p>
+</div>
 </div>
 </div>
 </div>
@@ -302,7 +320,6 @@ c_1 = \frac{\sum y - c_0}{2}
         
           By Karna Basu and Jonathan Conning<br/>
         
-            &copy; Copyright 2021.<br/>
       </p>
     </div>
   </footer>
