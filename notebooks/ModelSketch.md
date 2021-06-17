@@ -5,13 +5,13 @@ Consider the following simple workhorse three-period consumption smoothing model
 $$
 U(c_0, c_1, c_2) =u(c_0) + \beta [\delta u(c_1) + \delta^2 u(c_2)]
 $$
- 
+
 
 This is a version of the classic $\beta-\delta$ quasi-hyperbolic discounting model.  We assume the consumer has an autarky income stream ${y}=\{y_{0},y_{1},y_{2}\}$ which defines autarky or reservation utility $ \overline{u}(y) = U(y₀,y₁,y₂)$ but in general will prefer a smoother consumption profile from contracting on financial markets. 
 
-### Contracts with and without commitment services
+## Contracts with and without commitment services
 
-#### Competitive full-commitment
+### Competitive full-commitment
 
 Let's assume at first that financial intermediaries compete to offer a multiperiod contract and can -- at zero cost -- credibly commit to not renegotiate the terms of that contract. For the moment we also assume this contract to be enforceably exclusive in the sense that no other bank is allowed to offer a more attractive additional or alternative contract to the period 1 self.  We'll relax both assumptions shortly.
 
@@ -21,8 +21,6 @@ subject to the bank's zero profit condition or, same thing, consumer budget cons
 $$
 \sum\limits_{t=0}^{2}\frac{\left( y_{t}-c_{t}\right) }{\left( 1+r\right) ^{t}} = 0
 $$
-
-
 
 At the optimal contract $C^fc$ the consumer may save or borrow, depending on their initial income stream and preferred/feasible smoothed consumption stream available from contracting.  
 
@@ -44,6 +42,10 @@ $$
 c_1 = c_2 = c_0 [ \beta \delta (1+r) ]^\frac{1}{\rho}
 $$
 WLOG assume that $\delta = \frac{1}{1+r}$ and $r=0$ and hence $\delta = 1$. This simplifies the expressions without changing the essential tradeoffs.
+$$
+c_1 = c_2 = c_0  \beta ^\frac{1}{\rho}
+$$  
+
 
 If we substitute the FOC $c_1=c_2$ into the consumer's binding budget constraint (the bank's zero profit condition) the problem can be reduced from three equation (two FOC and the zero profit condition) to two:
 
@@ -54,10 +56,15 @@ $$
 $$
 c_1 = \frac{\sum y - c_0}{2}
 $$
+
+
 The first equation highlight's the period-zero self's present bias --they want to consume more in period zer than in period one--  while the second summarizes that hey want to smooth whatever resources are left to future consumption equally between periods 1 and 2.
 
 Figure 1 below illustrates how the equilibrium contract is determined, drawn for the CRRA case where $\beta=0.5$ and $\rho = 1$ and $\sum y =300$.  The first of these two lines can be seen as the upward sloping income-expansion income-expansion line in the rightmost quadrant diagram in $c_0$ and $c_1$ space.   The second line is seen as the downward sloping dashed line.
 
 
+```{note}
+To be continued
+```
 
-TO BE CONTINUED
+

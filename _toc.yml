@@ -1,8 +1,13 @@
 format: jb-book
 root: intro
 
-chapters:
-- file: notebooks/python_code
-- file: notebooks/Figure1
-- file: notebooks/ModelSketch
-#- file: commitments
+parts:
+- caption: Code and Figures
+  chapters:
+  - file: notebooks/python_code
+  - file: notebooks/Figure1
+- caption: Part 2
+  chapters:
+  - file: notebooks/ModelSketch
+  - file: notebooks/jbtest
+  #- file: commitments

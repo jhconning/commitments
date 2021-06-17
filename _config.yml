@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Commitments with Renegotiation Concerns
+title: Commitments under Threat Project
 author: Karna Basu and Jonathan Conning
 logo: logo.png
 
@@ -36,3 +36,19 @@ html:
   use_repository_button: true
 
 only_build_toc_files: true
+
+sphinx:
+  config:
+    html_show_copyright: false
+    html_extra_path: ['files']
+
+    myst_enable_extensions: 
+    - amsmath
+    - colon_fence
+    #- deflist
+    - dollarmath
+    - html_image
+    - linkify
+    #- replacements
+    #- smartquotes
+    #- substitution
