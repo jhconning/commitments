@@ -5,6 +5,7 @@ parts:
 - caption: Code and Figures
   chapters:
   - file: notebooks/Figure1
+  - file: notebooks/Figure2
   - file: notebooks/Figure3
 - caption: Notes and Extensions
   chapters:
