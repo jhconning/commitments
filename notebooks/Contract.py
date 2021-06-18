@@ -144,6 +144,15 @@ class Competitive(Contract):                    # build on contract class
         c0 = Y/( 1+(1+btr)*ltr )
         c1 = (Y-c0)/(1+btr)
         return np.array( [c0, c1, btr*c1])
+
+    def creneg(self, c):
+        """ Renegotiated competitive contract offered to period-1-self if
+        c_0 is past but (c_1,c_2) now replaced by (cr_1, cr_2)"""
+        beta, rho = self.beta, self.rho
+        btr = beta**(1/rho)
+        cr1 = (c[1]+c[2])/(1+btr)
+        cr2 = cr1*btr
+        return np.array([c[0],cr1, cr2])
     
     def bankPC(self,c):
         return (self.PV(self.y) - self.PV(c))
@@ -223,8 +232,9 @@ class Monopoly(Contract):                    # build on contract class
         return (self.PVU(c,self.beta)  - self.PVU(self.y,self.beta))
 
 
-    def opt(self):
-        """contract for any kappa"""
+    def reneg_proof(self):
+        """contract for any kappa
+           formerly 'opt' function """
         if self.kappa >= self.kbar():
             return self.fcommit()
         elif self.kappa ==0:
@@ -239,20 +249,20 @@ class Monopoly(Contract):                    # build on contract class
             return res.x
             
 
-    def reneg_proof(self):
+    def reneg_proof2(self):
         """Find period 0 monopoly best renegotiation-proof contract
         by searching over subgame perfect responses """
-        guess = self.fcommit()[0]
+        guess = self.fcommit()
         Y = np.sum(self.y)
 
         def f(c0):
-            c1 = self.bestreneg(c0)
+            c1 = self.reneg(c0)[1]
             return -(self.u(c0) 
                      + self.beta * (self.u(c1) + self.u(Y - c0 - c1)))
 
         c0rp = minimize(f, guess, method='Nelder-Mead').x[0]
         print(c0rp)
-        c1rp = self.bestreneg(c0rp)
+        c1rp = self.reneg(c0rp)[1]
         c2rp = Y - c0rp - c1rp
 
         return np.array([c0rp, c1rp, c2rp])
