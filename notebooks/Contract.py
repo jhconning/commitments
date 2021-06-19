@@ -10,6 +10,8 @@ __email__ = "jonathan.conning@gmail.com"
 """
 import numpy as np
 from scipy.optimize import minimize, brentq, fsolve
+import warnings
+warnings.filterwarnings('ignore', 'The iteration is not making good progress')
 
 
 class Contract(object):
@@ -32,6 +34,11 @@ class Contract(object):
         for p in sorted(params):    # print attributes alphabetically
             print("{0:<7} : {1}".format(p,params[p]))
 
+    def params(self):
+        '''Helper function to return key params just to unclutter other functions'''
+        btr = self.beta**(1/self.rho)
+        return self.beta, self.rho, btr, self.kappa, self.y
+
     def u(self,ct):
         """ utility function """
         if self.rho==1:
@@ -43,17 +50,17 @@ class Contract(object):
         """discounted present value of any stream c"""
         return c[0] + np.sum(c[1:])
 
-    def PVU(self,c, beta):
+    def PVU(self, c, beta):
         """discounted present utility value of any stream c
            We make beta a parameter to allow this express
            Zero or One self preferences"""
         return  self.u(c[0]) + beta * sum([self.u(ct) for ct in c[1:]] )
 
-    def profit(self,c,y):
+    def profit(self, c, y):
         """ present value of lender profits when exchanges c for y"""
         return  self.PV(y)-self.PV(c)
     
-    def negPVU(self,c):
+    def negPVU(self, c):
         """0 self negative present utility value of
         any stream c for minimization call"""
         return  - self.PVU(c, self.beta)
@@ -84,8 +91,8 @@ class Contract(object):
     def reneg(self,c):
         """ Renegotiated monopoly contract offered to period-1-self if
         c_0 is past but (c_1,c_2) now replaced by (cr_1, cr_2)"""
-        beta, rho = self.beta, self.rho
-        btr = beta**(1/rho)
+
+        beta, rho, btr, _, _ = self.params()
         if rho==1:
             lncr1 = (np.log(c[1])+beta*np.log(c[2])
                      -beta*np.log(beta))/(1+beta)
@@ -100,10 +107,39 @@ class Contract(object):
     
     def noreneg(self, c):
         """ no-renegotiation constraint; same for comp or monop
+        used in optimization
         """
         btr = self.beta**(1/self.rho)
         return (self.u(c[1]) + self.beta * self.u(c[2]) 
                 - (1+btr) * self.u( (c[1]+c[2]-self.kappa)/(1+btr)) )
+
+# for drawing no-renegotiation constraint
+    def rpc(self, s):
+        '''return points along the renegotiation-proof constraint
+    corresponding to resources s sent into period 1'''  
+        beta, _, btr, kap, _ = self.params()
+        c1P = (s-kap)/(1+btr)
+        ub = (1+btr)*self.u(c1P)
+    
+        def f(c1):
+            return  self.u(c1) + beta*self.u(s-c1) - ub 
+
+        c1rp = fsolve(f, [s/2])[0]
+        return c1rp, s-c1rp   
+
+    #def nrpline(C):
+    #     '''return '''
+    #     beta, rho, btr, kap = C.params()
+    #     num = 150
+    #     c1rp, c2rp  = np.zeros(num), np.zeros(num)
+    #     for i, s in enumerate(np.arange(30, 30+num)):
+    #         c1rp[i], c2rp[i] = C.rpc(s, k, beta, rho, upper)
+            
+    #     plt.plot(c1rp, c2rp, color='g')
+    #     plt.xlim(0,120),  plt.ylim(0,120)
+    #     plt.grid()
+        
+
 
 
 class Competitive(Contract):                    # build on contract class
