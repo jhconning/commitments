@@ -11,5 +11,5 @@ parts:
   chapters:
   - file: notebooks/ModelSketch
   - file: notebooks/python_code
-  - file: notebooks/jbtest
+  - file: notebooks/kbar
   #- file: commitments
