@@ -12,4 +12,4 @@ parts:
   - file: notebooks/ModelSketch
   - file: notebooks/python_code
   - file: notebooks/kbar
-  #- file: commitments
+  - file: notebooks/Contract_plots
