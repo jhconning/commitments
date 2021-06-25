@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Note on Python Code &#8212; Commitments under Threat Project</title>
+    <title>Python Code and cloud servers &#8212; Commitments under Threat Project</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -128,7 +128,7 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Note on Python Code
+   Python Code and cloud servers
   </a>
  </li>
  <li class="toctree-l1">
@@ -246,6 +246,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-on-a-cloud-server">
+   Running on a Cloud Server
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -254,9 +267,11 @@
         
               <div>
                 
-  <div class="section" id="note-on-python-code">
-<h1>Note on Python Code<a class="headerlink" href="#note-on-python-code" title="Permalink to this headline">¶</a></h1>
-<p>We’ve written a <span class="xref myst">Contract.py</span> python module to help define functions that make it easy to establish preferences and parameters under different contracting environments and solve for equilibrium contracts.</p>
+  <div class="section" id="python-code-and-cloud-servers">
+<h1>Python Code and cloud servers<a class="headerlink" href="#python-code-and-cloud-servers" title="Permalink to this headline">¶</a></h1>
+<p>Most of the code used for this project is in a <span class="xref myst">Contract.py</span> python module that is imported at the top of each notebook. This allows us to use object oriented programming to establish Contract objects which help define a particular contracting environment, specifying parameter attributes and providing a number of methods for calculating useful values or optimal contracts.</p>
+<p>To run this and other notebook pages interactively you will need to be running a jupyter server.  There are a few options available for doing this described at the very end of this page.</p>
+<p>Here we describe the basics of using the <code class="docutils literal notranslate"><span class="pre">Contract</span></code> module.  We get things started by importing the module:</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">Contract</span>
@@ -264,8 +279,7 @@
 </div>
 </div>
 </div>
-<p>We’ve defined a <code class="docutils literal notranslate"><span class="pre">Contract</span></code> class which serves as a template of sorts to create different instances of contract objects.  We can then modify attributes (e.g. parameters) associated with a particular instance, and also apply methods (e.g. solve for equilibrium contracts, or calculate useful things like the present discounted value).</p>
-<p>For example, below we define <code class="docutils literal notranslate"><span class="pre">cC</span></code> as an instance of the competitive contract class and examine its default parameters.</p>
+<p>This defines a <code class="docutils literal notranslate"><span class="pre">Contract</span></code> class which serve to create different instances of contract objects.  For example, below we define <code class="docutils literal notranslate"><span class="pre">cC</span></code> as an instance of the competitive contract object and we examine its default parameters with the <code class="docutils literal notranslate"><span class="pre">print_params</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cC</span> <span class="o">=</span> <span class="n">Contract</span><span class="o">.</span><span class="n">Competitive</span><span class="p">(</span><span class="n">beta</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
@@ -282,7 +296,7 @@ y       : [100 100 100]
 </div>
 </div>
 </div>
-<p>We can then do things such as find the “full commitment” (i.e. first-best) contract under the assumption that banks would never renegotiate.</p>
+<p>We can use other methods to do things such as find the “full commitment” (i.e. first-best) contract under the assumption that banks would never renegotiate.</p>
 <p>You can see how this present-biased consumer borrows in period 0 and then sets up constant repayments in period 1 and 2.  The consumer’s optimum consumption smoothing contract is:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -322,7 +336,7 @@ y       : [100 100 100]
 </div>
 </div>
 </div>
-<p>If the bank faces renegotiation costs <span class="math notranslate nohighlight">\(\kappa &gt; \bar kappa\)</span> then the full-commitment contract will be ‘renegotiation-proof’</p>
+<p>If the bank faces renegotiation costs <span class="math notranslate nohighlight">\(\kappa &gt; \bar \kappa\)</span> then the full-commitment contract will be ‘renegotiation-proof’.  Note how we first change the value of the <span class="math notranslate nohighlight">\(\kappa\)</span> parameter associated with this particular contract.  We then find the renegotiation proof contract.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cC</span><span class="o">.</span><span class="n">kappa</span> <span class="o">=</span> <span class="mi">10</span>
@@ -349,6 +363,24 @@ y       : [100 100 100]
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="running-on-a-cloud-server">
+<h2>Running on a Cloud Server<a class="headerlink" href="#running-on-a-cloud-server" title="Permalink to this headline">¶</a></h2>
+<p>Options to run this and other pages interactively:</p>
+<ol>
+<li><p><strong>Binder or Google Colab Cloud Servers:</strong>  Click on the rocket icon at the top of this page to launch one of these cloud server services.</p>
+<ul>
+<li><p><strong>Binder:</strong> this will create a virtual machine which will allow you to run the notebooks. It may take some time to first build and launch.</p></li>
+<li><p><strong>Google Colab:</strong>  this will launch a jupyter notebook server of the current notebook.  You will need to make the <code class="docutils literal notranslate"><span class="pre">Contract.py</span></code> module available to google’s colab environment.  You need to replace the code cell that says <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Contract</span></code> with the following instead:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!git clone https://github.com/jhconning/commitments.git
+import commitments.notebooks.Contract as Contract
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>If you have a jupyter kernel runing on your local machine.  Clone <a class="reference external" href="https://github.com/jhconning/commitments">https://github.com/jhconning/commitments</a> and then run the notebooks yourself.</p></li>
+</ol>
 </div>
 </div>
 
