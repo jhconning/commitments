@@ -119,9 +119,7 @@ class Contract(object):
     def rpc(self, s):
         '''return points along the renegotiation-proof constraint
     corresponding to resources s sent into period 1
-     $$\u(c_1) + \beta \cdot u(s-c_1) = \frac{u(s-\kappa)}{1+ \beta^\frac{1}{\rho}} \cdot (1+ \beta^\frac{1}{\rho})$$ 
-    
-    '''  
+        '''  
         beta, _, btr, kap, _ = self.params()
         c1P = (s-kap)/(1+btr)
         ub = (1+btr)*self.u(c1P)
