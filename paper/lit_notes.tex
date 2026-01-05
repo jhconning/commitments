@@ -1,0 +1,101 @@
+
+\documentclass[letterpaper, 12pt]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+
+%% Sets page size and margins
+\usepackage[letterpaper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amssymb,amsmath,amsthm}
+\usepackage{graphicx}
+\usepackage{setspace}
+% I switched from older bibtex/natbib to newer biblatex (w/ natbib compatibility so \citet{} syntax preserved). Roger that - I fixed it so it runs correctly
+%\usepackage[round]{natbib}
+\usepackage[style=authoryear,
+            natbib=true, 
+            doi=false,isbn=false,url=false]{biblatex}
+%\bibliographystyle{apalike}
+\addbibresource{renegotiation2.bib}
+
+% this avoids annoying "visited on:" field from appearing in bibliography
+\AtEveryBibitem{
+    \clearfield{urlyear}
+    \clearfield{urlmonth}
+}
+
+
+\emergencystretch=1em
+\usepackage{amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{definition*}{Definition}
+\usepackage{chngcntr}
+\counterwithout{figure}{section}
+\usepackage{varioref}
+\usepackage[normalem]{ulem}
+\usepackage{authblk}
+
+
+\title{Threats to Commitment:\\(literature notes)}
+
+\begin{document}
+
+\maketitle
+\begin{abstract}
+Literature to add or discuss.
+\end{abstract}
+\tableofcontents
+\newpage
+
+
+\section{Suggested by refs}
+
+Show how our results differ from \citet{gottlieb2021}.  What gap do we fill?
+\begin{quotation}
+"The main intuition does not require present-bias. The main result holds in a model with dynamic time consistent agent with reclassification risk (see e.g. \citet{hendel2003a})  
+\end{quotation}
+
+\begin{quotation}
+"...in models with dynamically consistent agents (see e.g. \cite{krueger2006a}), the additional constraints from one-sided commitment can be simplified to the front-loading constraints. Essentially you intodue and additional term, $\kappa$, in the front loading constraint.  It may be useful to readers if you point out the connection to the typical one-sided commitment assumptions"
+\end{quotation}
+
+
+\begin{quotation}
+"perhaps simpliefy your analysis by assuming there is a contracting stage prior to the consumption stage. You only need two periods of consumption. More importantly, as in \cite{heidhues2010a}, the Zero-self's optimal contract is the full smoothing contract."
+\end{quotation}
+
+
+\begin{quotation}
+"it seems that your results on naive consumers (Proposition 4\&5) are inconsistent with \citet{gottlieb2021}. They show that the consumption stream converges to the full smoothing contract as the number of conracting periods goes to infinity.  The inconsistency may be resulted from the difference between our contracting space and theirs..."
+\end{quotation}
+
+
+
+Maybe also the older survey by \citet{frederick2002a}
+
+\section{Literature review}
+
+
+\begin{quotation}
+"Paper does not have an actual literature review...for example \citet{gottlieb2008b, dellavigna2004, gottlieb2021} and survey articles by \citet{koszegi2014a} and \citet{grubb2015b}"
+\end{quotation}
+
+
+
+\cite{krueger2006a} and \citet{hendel2003a} examine models with no time-inconsistency.  They focus on contracting with reclassification risk.  For example life-insurance.  Pay premium in period 0 for contract in period 1 (...2, 3..T)
+
+Front-loading
+
+
+
+\printbibliography
+
+% \nocite{*}
+
+
+\end{document}
