@@ -1,0 +1,35 @@
+version: 1
+project:
+  title: Threats to Commitment Project
+  authors:
+    - name: Karna Basu
+    - name: Jonathan Conning
+  github: jhconning/commitments
+  thebe:
+    binder:
+      repo: jhconning/commitments
+      provider: github
+      url: https://mybinder.org
+      ref: main
+  exports:
+    - format: pdf
+      template: plain_latex_book
+      output: exports/book.pdf
+  toc:
+    - file: intro.md
+    - title: Code and Figures
+      children:
+        - file: notebooks/Figure1.ipynb
+        - file: notebooks/Figure2.ipynb
+        - file: notebooks/Figure3.ipynb
+    - title: Notes and Extensions
+      children:
+        - file: notebooks/ModelSketch.md
+        - file: notebooks/python_code.ipynb
+        - file: notebooks/kbar.ipynb
+        - file: notebooks/Contract_plots.ipynb
+site:
+  options:
+    logo: logo.png
+    folders: true
+  template: book-theme
