@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://localhost:3000/sitemap_style.xsl" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:3000</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/figure1</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/figure2</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/figure3</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/modelsketch</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/python-code</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/kbar</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/notebooks/contract-plots</loc>
+  </url>
+</urlset>
